@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UserLayoutRoutingModule } from './user-layout-routing.module';
 import { UserLayoutComponent } from './user-layout.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { UserLayoutComponent } from './user-layout.component';
   ],
   imports: [
     CommonModule,
-    UserLayoutRoutingModule
+    UserLayoutRoutingModule,
+    SharedModule
   ]
 })
 export class UserLayoutModule { }

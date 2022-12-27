@@ -35,9 +35,15 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './component/error/error.component';
+import { SideNavComponent } from './component/side-nav/side-nav.component';
+
+import { SharedRoutingModule } from './shared-routing.module';
+import { ProfileComponent } from '../pages/profile/profile.component';
+import { SettingsComponent } from '../pages/settings/settings.component';
+import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 
 const Ux_Module =[
   MatCheckboxModule,
@@ -72,28 +78,36 @@ const Ux_Module =[
     MatPaginatorModule
 ]
 
+const PageComponents = [
+  ErrorComponent,
+  SideNavComponent,
+  ProfileComponent,
+  SettingsComponent,
+  DashboardComponent,
+]
+
 @NgModule({
   declarations: [
-    ErrorComponent
+    PageComponents,
   ],
   imports: [
+    SharedRoutingModule,
     CommonModule,
     HttpClientModule,
-
-    // Material
-    Ux_Module,
+    FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    // Material
+    Ux_Module,
   ],
   exports: [
-    ErrorComponent,
-
-    // Material
-    Ux_Module,
+    PageComponents,
+    FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,
+    // Material
+    Ux_Module,
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}]
 })

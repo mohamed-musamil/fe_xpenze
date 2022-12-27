@@ -11,7 +11,6 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      console.log(this.storage.checkStorage());
       if(!this.storage.checkStorage()) {
         this.router.navigate(['/auth'])
         return false;
@@ -29,7 +28,6 @@ export class UserGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      console.log(this.storage.checkStorage());
       if(this.storage.checkStorage()) {
         this.router.navigate(['/'])
         return false;

@@ -1,0 +1,46 @@
+<div class="side-navbar">
+    <div class="top">
+        <mat-icon>notifications_none</mat-icon>
+    </div>
+    <div class="user">
+        <img *ngIf="!gender" src="../../../../assets/images/user/male.webp" />
+        <img *ngIf="gender" src="../../../../assets/images/user/female.webp" />
+        <h4 class="name">admin</h4>
+        <div class="mail">admin@gmail.com</div>
+        <div style="display: flex; align-items: center; justify-content: center;flex-direction: row;">
+            <div>Male</div>
+            <div>
+                <input type="checkbox" id="toggle" [(ngModel)]="gender" />
+                <label for="toggle"></label>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Female</div>
+        </div>
+        <!-- <mat-radio-group color="primary" aria-label="" [(ngModel)]="gender">
+            <mat-radio-button class="mat-radio-button" value="Male">Male</mat-radio-button>
+            <mat-radio-button class="mat-radio-button" value="Female">Female</mat-radio-button>
+        </mat-radio-group> -->
+    </div>
+    <div class="nav-menu">
+        <div class="nav-menu-head">
+            Dashboard
+        </div>
+        <ul class="nav-menu-items">
+            <li mat-button class="nav-menu-button" [routerLink]="'/dashboard'" [routerLinkActive]="'active'">
+                <mat-icon>dashboard</mat-icon>
+                <span>Home</span>
+            </li>
+            <div mat-button class="nav-menu-button" [routerLink]="'/profile'" [routerLinkActive]="'active'">
+                <a>
+                    <mat-icon>manage_accounts</mat-icon>
+                    <span>Profile</span>
+                </a>
+            </div>
+            <div mat-button class="nav-menu-button" #settings="routerLinkActive" [routerLink]="'/settings'" [routerLinkActive]="'active'">
+                <a>
+                    <mat-icon>{{settings ? 'settings' : 'settings_applications'}}</mat-icon>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </ul>
+    </div>
+</div>
