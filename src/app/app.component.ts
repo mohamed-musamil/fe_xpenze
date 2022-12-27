@@ -10,18 +10,8 @@ import { RestService } from './shared/services/rest.service';
 })
 export class AppComponent implements OnInit {
   title = 'fe_xpenze';
-  showToast: Boolean = false;
-  list = new BehaviorSubject([]);
 
-  constructor(private readonly commonService: CommonService, private cdref: ChangeDetectorRef) {
-    this.commonService.displayToast.subscribe((data:any) => {
-      this.showToast = data?.showToast;
-      if(data?.toast) {
-        console.log(data?.toast);
-        this.list.next(data?.toast);
-      }
-    })
-  }
+  constructor(private readonly commonService: CommonService, private cdref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.commonService.checkServer();

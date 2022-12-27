@@ -124,7 +124,6 @@
                 </div>
               </div>
 
-              <!-- <input type="submit" value="Sign Up" class="sign-btn" /> -->
               <button *ngIf="!isSubmitted" type="submit" form="registerForm" value="Submit" class="sign-btn">Sign Up &nbsp;<mat-icon class="btn-icon">login</mat-icon></button>
               <button *ngIf="isSubmitted" type="submit" form="registerForm" value="Submit" class="sign-btn" fxLayoutAlign="center center"><span style="position: relative;top: 25%;">Please Wait..&nbsp;&nbsp;</span><mat-spinner style="width: 25px; height: 25px; color: wheat;" mode="indeterminate" color="warn" class="btn-icon"></mat-spinner></button>
 

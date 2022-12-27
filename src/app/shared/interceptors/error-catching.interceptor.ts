@@ -23,24 +23,13 @@ export class ErrorCatchingInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         let url = error.url.replaceAll(environment.apiUrl, 'BASE_URI//_')
         if(error.status === 404 || error.status === 400) {
-          this.route.navigateByUrl('/auth')
+          this.route.navigate(['/auth'])
         }
-        if(error.status === 0) {
+        if(error.status === 0 || error.status === 409) {
           let data = {};
           data = {
             status : error.status,
             url : error.url,
-            statusText: error.error?.message,
-            time: error.error?.currentTime,
-            user: error.error?.currentUser
-          }
-          this.errorService.openErrorPopup(data);
-        }
-        if(error.status === 409) {
-          let data = {};
-          data = {
-            status : error.status,
-            url : url,
             statusText: error.error?.message,
             time: error.error?.currentTime,
             user: error.error?.currentUser

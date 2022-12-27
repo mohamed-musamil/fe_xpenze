@@ -11,7 +11,12 @@ export class AuthLayoutService {
   constructor(public readonly restService: RestService, private readonly commonService: CommonService) { }
 
   register(data) {
-    let url = 'User'
+    let url = 'auth/register'
+    return this.restService.save(url, data).pipe(map((response: any) => { return response} ))
+  }
+
+  login(data) {
+    let url = 'auth/login'
     return this.restService.save(url, data).pipe(map((response: any) => { return response} ))
   }
 }

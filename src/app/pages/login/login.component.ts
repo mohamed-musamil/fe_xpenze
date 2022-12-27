@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthLayoutService } from 'src/app/layout/auth-layout/auth-layout.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
+import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +17,12 @@ export class LoginComponent implements OnInit{
     email_phone : false,
     password : false
   }
+
+  constructor(public readonly authService: AuthLayoutService, private toasterService: ToasterService, public route: Router,
+    private storage: StorageService) { }
+
   ngOnInit(): void {
+    this.routeDashboard()
     this.loginForm = new FormGroup({
       email_phone : new FormControl('', [Validators.required, Validators.minLength(2)]),
       password : new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -26,7 +35,19 @@ export class LoginComponent implements OnInit{
       let obj: any = {};
       obj.password = this.loginForm.value?.password
       obj[this.checkEmail ? 'email' :'phoneno'] = this.loginForm.value?.email_phone
-      console.log(obj);
+      this.authService.login(obj).subscribe(res=> {
+        if (res.accessToken) {
+          this.toasterService.showSuccess('User 👤', 'Login Successfully..!');
+          this.storage.saveUser(res);
+          this.routeDashboard()
+        }
+      })
+    }
+  }
+
+  routeDashboard() {
+    if(this.storage.checkStorage()) {
+      this.route.navigate(['/'])
     }
   }
 

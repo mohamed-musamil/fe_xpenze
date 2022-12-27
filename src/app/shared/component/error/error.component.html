@@ -10,7 +10,7 @@
   </div>
   <div class="dialog-content overflow-hidden" style="padding: 3rem 1rem; height: 30vh;">
     <div fxLayoutAlign="center center">
-      <mat-icon style="font-size: 3rem;width: auto; height: auto;">{{data.status === 0 ? 'crisis_alert' : 'warning'}}</mat-icon>
+      <mat-icon style="font-size: 3rem;width: auto; height: auto;">{{data.status === 0 ? 'running_with_errors' : 'warning'}}</mat-icon>
     </div>
     <div *ngIf="data.status === 0" class="main" fxLayoutAlign="center center" fxLayout="column">
       <div style="padding-top: 1rem; font-size: 2rem;">
