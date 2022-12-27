@@ -4,7 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { SharedModule } from './shared/shared.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorCatchingInterceptor } from "./shared/interceptors/error-catching.interceptor";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,20 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatProgressBarModule
+    SharedModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      progressBar: true,
+      preventDuplicates: true,
+      tapToDismiss: true,
+      closeButton: true,
+    })
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorCatchingInterceptor,
+    multi: true
+}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
