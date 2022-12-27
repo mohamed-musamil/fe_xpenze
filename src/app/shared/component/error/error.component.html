@@ -1,0 +1,35 @@
+
+<div mat-dialog-content>
+  <div fxLayout="row" style="height: 20px;">
+    <div fxLayout="column" fxFlex mat-dialog-title>
+     <span>Something went wrong!</span>
+    </div>
+    <div fxLayout="column" fxFlex="10" fxLayoutAlign="start end">
+      <mat-icon (click)="closePopup()" class="header-close-btn">close</mat-icon>
+    </div>
+  </div>
+  <div class="dialog-content overflow-hidden" style="padding: 3rem 1rem; height: 30vh;">
+    <div fxLayoutAlign="center center">
+      <mat-icon style="font-size: 3rem;width: auto; height: auto;">{{data.status === 0 ? 'crisis_alert' : 'warning'}}</mat-icon>
+    </div>
+    <div *ngIf="data.status === 0" class="main" fxLayoutAlign="center center" fxLayout="column">
+      <div style="padding-top: 1rem; font-size: 2rem;">
+        <span>Server Down</span>
+      </div>
+    </div>
+    <div *ngIf="data.status !== 0" class="main" fxLayout="column" style="padding-top: 1rem;">
+      <div fxLayoutAlign="start start">
+        <div fxLayout="row" fxFlex="100">
+          <div fxLayout="column" fxFlex="20">API :</div>
+          <div fxLayout="column" fxFlex="80">{{data.url}}</div>
+        </div>
+      </div>
+      <div fxLayoutAlign="start start">
+        <div fxLayout="row" fxFlex="100">
+          <div fxLayout="column" fxFlex="20">Message :</div>
+          <div fxLayout="column" fxFlex="80">{{data.statusText}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

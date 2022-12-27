@@ -1,0 +1,159 @@
+<main>
+    <div class="box">
+      <div class="inner-box">
+        <div class="forms-wrap">
+          <form (ngSubmit)="submitForm()" [formGroup]="loginForm" autocomplete="off" class="sign-in-form" id="loginForm">
+            <div class="logo">
+              <img src="../../../assets/xpenze.ico" alt="X" />
+              <span>P E N  C E</span>
+            </div>
+
+            <div class="heading">
+              <h2>Welcome Back :)</h2>
+              <h6>Not registred yet? &nbsp;</h6>
+              <a [routerLink]="['/auth/register']" class="toggle">Sign up</a>
+            </div>
+
+            <div class="actual-form">
+              <div class="input-wrap" [ngStyle]="loginForm.get('email_phone')?.invalid && (loginForm.get('email_phone')?.dirty || loginForm.get('email_phone')?.touched) ? {'margin-bottom': '3rem'} : {}">
+                <input
+                  type="text"
+                  matInput
+                  (keyup)="getData('email_phone')"
+                  formControlName="email_phone"
+                  name = "email_phone"
+                  class="input-field"
+                  [ngClass]="field.email_phone ? 'active':''"
+                  [ngStyle]="loginForm.get('email_phone')?.invalid && (loginForm.get('email_phone')?.dirty || loginForm.get('email_phone')?.touched) ? {'border-bottom': '1px solid red'} : {}"
+                />
+                <label>{{loginForm.get('email_phone')?.value ? checkEmail ? 'Email' : 'Phone No' : 'Email / PhoneNo'}}</label>
+                <mat-icon class="error_icon" *ngIf="loginForm.get('email_phone')?.invalid && (loginForm.get('email_phone')?.dirty || loginForm.get('email_phone')?.touched)" style="color: lightcoral;">error</mat-icon>
+                <mat-icon class="error_icon" *ngIf="loginForm.get('email_phone')?.valid && (loginForm.get('email_phone')?.dirty || loginForm.get('email_phone')?.touched)" style="color: lightgreen;">check_circle</mat-icon>
+                <div style="position: absolute; top: 100%; color: lightcoral;" *ngIf="loginForm.get('email_phone')?.invalid && (loginForm.get('email_phone')?.dirty || loginForm.get('email_phone')?.touched)"
+                  class="">
+                  <div *ngIf="loginForm.get('email_phone')?.errors?.['required']">
+                    {{loginForm.get('email_phone')?.value ? checkEmail ?'Email Address' : 'Phone No' : 'Email / PhoneNo'}} is required.
+                  </div>
+                  <div *ngIf="loginForm.get('email_phone')?.errors?.['minlength'] && !checkEmail">
+                    {{loginForm.get('email_phone')?.value ? checkEmail ?'Email Address' : 'Phone No' : 'Email / PhoneNo'}} must be at least {{!checkEmail ? '10' : '2'}} characters long.
+                  </div>
+                  <div *ngIf="loginForm.get('email_phone')?.errors?.['email']">
+                    Entered valid Email
+                  </div>
+                  <div *ngIf="loginForm.get('email_phone')?.errors?.['forbiddenName']">
+                    {{loginForm.get('email_phone')?.value ? checkEmail ?'Email Address' : 'Phone No' : 'Email / PhoneNo'}} cannot be Bob.
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-wrap" [ngStyle]="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) ? {'margin-bottom': '3rem'} : {}">
+                <input
+                  matInput
+                  type="password"
+                  name = "password"
+                  (keyup)="getData('password')"
+                  formControlName="password"
+                  [ngClass]="field.password ? 'active':''"
+                  [ngStyle]="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) ? {'border-bottom': '1px solid red'} : {}"
+                  class="input-field"
+                />
+                <label>Password</label>
+                <mat-icon class="error_icon" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" style="color: lightcoral;">error</mat-icon>
+                <mat-icon class="error_icon" *ngIf="loginForm.get('password')?.valid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" style="color: lightgreen;">check_circle</mat-icon>
+                <div style="position: absolute; top: 100%; color: lightcoral;" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)"
+                  class="">
+                  <div *ngIf="loginForm.get('password')?.errors?.['required']">
+                    Password is required.
+                  </div>
+                  <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                    Password must be at least 6 characters long.
+                  </div>
+                  <div *ngIf="loginForm.get('password')?.errors?.['forbiddenName']">
+                    Password cannot be Bob.
+                  </div>
+                </div>
+              </div>
+
+              <!-- <input type="submit" value="Sign In" class="sign-btn" /> -->
+              <button type="submit" form="loginForm" value="Submit" class="sign-btn">Sign In <mat-icon class="btn-icon">login</mat-icon></button>
+
+              <p class="text">
+                Forgotten your password or you login datails?
+                <a href="#">Get help</a> signing in
+              </p>
+            </div>
+          </form>
+
+          <!-- <form action="index.html" autocomplete="off" class="sign-up-form">
+            <div class="logo">
+              <img src="../../../assets/xpenze.ico" alt="cv" />
+              <h4>easyclass</h4>
+            </div>
+
+            <div class="heading">
+              <h2>Get Started</h2>
+              <h6>Already have an account?</h6>
+              <a href="#" class="toggle">Sign in</a>
+            </div>
+
+            <div class="actual-form">
+              <div class="input-wrap">
+                <input
+                  type="text"
+                  minlength="4"
+                  class="input-field"
+                  autocomplete="off"
+                  required
+                />
+                <label>Name</label>
+              </div>
+
+              <div class="input-wrap">
+                <input
+                  type="email"
+                  class="input-field"
+                  autocomplete="off"
+                  required
+                />
+                <label>Email</label>
+              </div>
+
+              <div class="input-wrap">
+                <input
+
+                  type="password"
+                  minlength="4"
+                  class="input-field"
+                  autocomplete="off"
+                  required
+                />
+                <label>Password</label>
+              </div>
+
+              <input type="submit" value="Sign Up" class="sign-btn" />
+
+              <p class="text">
+                By signing up, I agree to the
+                <a href="#">Terms of Services</a> and
+                <a href="#">Privacy Policy</a>
+              </p>
+            </div>
+          </form> -->
+        </div>
+
+        <div class="carousel">
+          <div class="images-wrapper">
+            <img src="../../../assets/images/login_image.png" class="image img-1 show" alt="" />
+          </div>
+
+          <div class="text-slider">
+            <div class="text-wrap">
+              <div class="text-group">
+                <h2><span>Sign-out</span> of past...<br/> <span>Login</span> to the new..!</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
