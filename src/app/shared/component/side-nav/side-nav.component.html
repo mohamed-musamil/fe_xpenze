@@ -1,0 +1,64 @@
+<div class="side-navbar">
+    <div>
+        <div class="top">
+            <mat-icon>notifications_none</mat-icon>
+        </div>
+        <div class="user">
+            <img *ngIf="!gender" src="../../../../assets/images/user/male.webp" />
+            <img *ngIf="gender" src="../../../../assets/images/user/female.webp" />
+            <h4 class="name">admin</h4>
+            <div class="mail">admin@gmail.com</div>
+            <div class="gender">
+                <span>Male</span>
+                <div>
+                    <input type="checkbox" id="toggle" [(ngModel)]="gender" />
+                    <label for="toggle"></label>
+                </div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp; Female</span>
+            </div>
+        </div>
+    </div>
+    <div class="nav-menu">
+        <div class="nav-menu-head">
+            Lobby
+        </div>
+        <div class="menu-item-container">
+            <div class="nav-menu-items">
+                <div mat-button class="nav-menu-button" [routerLink]="'/dashboard'" [routerLinkActive]="'active'">
+                    <mat-icon>dashboard</mat-icon>
+                    <span>Home</span>
+                </div>
+                <div mat-button class="nav-menu-button" [routerLink]="'/profile'" [routerLinkActive]="'active'">
+                    <a>
+                        <mat-icon>person</mat-icon>
+                        <span>Profile</span>
+                    </a>
+                </div>
+                <div mat-button class="nav-menu-button" [routerLink]="'/wallet'" [routerLinkActive]="'active'">
+                    <a>
+                        <mat-icon>account_balance_wallet</mat-icon>
+                        <span>Wallet</span>
+                    </a>
+                </div>
+                <div mat-button class="nav-menu-button" [routerLink]="'/wallet'" [routerLinkActive]="'active'">
+                    <a>
+                        <mat-icon>query_stats</mat-icon>
+                        <span>Analytics</span>
+                    </a>
+                </div>
+                <div mat-button class="nav-menu-button"  [routerLink]="'/settings'" [routerLinkActive]="'active'">
+                    <a>
+                        <mat-icon>settings</mat-icon>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-menu-bottom">
+                <div mat-button class="nav-menu-button" (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

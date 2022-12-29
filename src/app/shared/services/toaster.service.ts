@@ -33,18 +33,4 @@ export class ToasterService {
       timeOut: 3000,
     });
   }
-
-
-  showToast(type:string, headerMessage: string, message: string) {
-    let toastObj: any = {}
-    toastObj.showToast = true;
-    toastObj.toast ={
-      active: this.config.ACTIVE,
-      type:type,
-      headerMessage: headerMessage,
-      message: message
-    }
-    console.log(toastObj);
-    this.commonService.setToastMessage(toastObj);
-  }
 }

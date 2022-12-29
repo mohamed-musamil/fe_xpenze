@@ -1,0 +1,51 @@
+:root{
+    --font-size-base: 1rem;
+    --font-size-biggish: 1.75rem;
+    --font-size-big: 2.25rem;
+  
+    --shadow-01: 0px 2px 4px rgba(37, 37, 37, 0.1);
+    --shadow-02: 0px 4px 8px rgba(37, 37, 37, 0.1);
+    --shadow-03: 0px 8px 16px rgba(37, 37, 37, 0.1);
+    --shadow-04: 0px 16px 24px rgba(37, 37, 37, 0.1);
+    --shadow-05: 0px 24px 32px rgba(37, 37, 37, 0.1);
+  
+    --color-white-100: rgba(255, 255, 255, 1);
+    --color-white-75: rgba(255, 255, 255, 0.75);
+    --color-white-50: rgba(255, 255, 255, 0.5);
+    --color-white-25: rgba(255, 255, 255, 0.25);
+  
+    --color-grey-100: rgba(243, 243, 243, 1);
+    --color-grey-75: rgba(243, 243, 243, 0.75);
+    --color-grey-50: rgba(243, 243, 243, 0.5);
+    --color-grey-25: rgba(243, 243, 243, 0.25);
+  
+    --color-black-100: rgba(0, 0, 0, 1);
+    --color-black-75: rgba(0, 0, 0, 0.75);
+    --color-black-50: rgba(0, 0, 0, 0.5);
+    --color-black-25: rgba(0, 0, 0, 0.25);
+  
+    --color-dgrey-100: rgba(48, 48, 48, 1);
+    --color-dgrey-75: rgba(48, 48, 48, 0.75);
+    --color-dgrey-50: rgba(48, 48, 48, 0.5);
+    --color-dgrey-25: rgba(48, 48, 48, 0.25);
+  
+    --color-lgrey-100: rgba(171, 171, 171, 1);
+    --color-lgrey-75: rgba(171, 171, 171, 0.75);
+    --color-lgrey-50: rgba(171, 171, 171, 0.5);
+    --color-lgrey-25: rgba(171, 171, 171, 0.25);
+  
+    --color-green-100: rgba(133, 187, 101, 1);
+    --color-green-75: rgba(133, 187, 101, 0.75);
+    --color-green-50: rgba(133, 187, 101, 0.5);
+    --color-green-25: rgba(133, 187, 101, 0.25);
+  
+    --color-red-100: rgba(231, 87, 87, 1);
+    --color-red-75: rgba(231, 87, 87, 0.75);
+    --color-red-50: rgba(231, 87, 87, 0.5);
+    --color-red-25: rgba(231, 87, 87, 0.25);
+  
+    --success: #19b262;
+    --error: #e3174b;
+    --warning: #ffbb38;
+    --primary: #2a90fc;
+  }

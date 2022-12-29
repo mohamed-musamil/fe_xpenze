@@ -1,0 +1,20 @@
+<mat-sidenav-container class="nav-container">
+    <mat-sidenav #sidenav [mode]="'side'" opened>
+        <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="toolnbr">
+                <mat-toolbar>
+                    <mat-icon (click)="sidenav.toggle()">{{!sidenav.opened ? 'menu' : 'menu_open'}}</mat-icon>
+                    <div class="box">
+                        <mat-icon>account_box</mat-icon>
+                    </div>
+                </mat-toolbar>
+            </div>
+            <div class="main">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
