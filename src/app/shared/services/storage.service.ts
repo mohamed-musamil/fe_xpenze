@@ -10,11 +10,14 @@ export class StorageService {
 
   saveUser(data:any){
     localStorage.removeItem(this.keyName);
-    localStorage.setItem(this.keyName, JSON.stringify(data));
+    let obj = JSON.stringify(data)
+    obj = obj.replace(obj, btoa(obj));
+    localStorage.setItem(this.keyName, obj);
   }
 
   getUser(){
     let user = localStorage.getItem(this.keyName);
+    if(user) user = user.replace(user, atob(user));
     return JSON.parse(user!);
   }
 
@@ -24,6 +27,7 @@ export class StorageService {
 
   checkStorage():Boolean{
     let user = localStorage.getItem(this.keyName);
+    if(user) user = user.replace(user, atob(user));
     return !!JSON.parse(user!);
   }
 }

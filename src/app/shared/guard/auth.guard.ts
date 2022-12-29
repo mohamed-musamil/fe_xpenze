@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CommonService } from '../services/common.service';
 import { StorageService } from '../services/storage.service';
 
 @Injectable({
@@ -23,13 +24,13 @@ export class AuthGuard implements CanActivate {
   providedIn: 'root'
 })
 export class UserGuard implements CanActivate {
-  constructor(private router: Router, private readonly storage: StorageService) { }
+  constructor(private router: Router, private readonly storage: StorageService, private commonService: CommonService,) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
       if(this.storage.checkStorage()) {
-        this.router.navigate(['/'])
+        this.commonService.routeRole()
         return false;
       }
     return true;

@@ -1,7 +1,9 @@
+@import url(../../../themes.scss);
 mat-sidenav {
-    background: #0f172a;
+    background: var(--color-grey-100);
     width: 230px;
     height: 100%;
+    border: none;
 }
 
 mat-sidenav-content {
@@ -16,7 +18,7 @@ mat-toolbar {
     justify-content: space-between;
     mat-icon {
         margin-left: 15px;
-        color: #6D8299;
+        color: var(--color-dgrey-50);
     }
     .box{
         margin-top: 15px;
