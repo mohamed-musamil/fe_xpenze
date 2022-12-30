@@ -12,6 +12,7 @@ export class SideNavComponent implements OnInit{
     
   }
   gender = false;
+  logo = '../../../../assets/Logo.svg'
   ngOnInit(): void { }
 
   logout() {

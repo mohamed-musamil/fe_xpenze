@@ -1,7 +1,8 @@
 <div class="side-navbar">
     <div>
         <div class="top">
-            <mat-icon>notifications_none</mat-icon>
+            <img class="logo" [src]="logo">
+            <mat-icon class="icon">notifications_none</mat-icon>
         </div>
         <div class="user">
             <img *ngIf="!gender" src="../../../../assets/images/user/male.webp" />
@@ -40,7 +41,7 @@
                         <span>Wallet</span>
                     </a>
                 </div>
-                <div mat-button class="nav-menu-button" [routerLink]="'/wallet'" [routerLinkActive]="'active'">
+                <div mat-button class="nav-menu-button" [routerLink]="'/analytics'" [routerLinkActive]="'active'">
                     <a>
                         <mat-icon>query_stats</mat-icon>
                         <span>Analytics</span>
