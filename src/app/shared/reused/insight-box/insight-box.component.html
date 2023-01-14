@@ -1,0 +1,26 @@
+<div class="insights-box">
+    <div [ngClass]="classList">
+        <mat-icon>{{icon}}</mat-icon>
+        <div class="middle-box">
+            <div class="left-box">
+                <h3>Total {{title}}</h3>
+                <h1>₹{{price}}</h1>
+            </div>
+            <div class="progress-box" [matTooltip]="'₹ '+price || ''">
+                <circle-progress
+                    [percent]="percent"
+                    [radius]="100"
+                    [outerStrokeWidth]="25"
+                    [innerStrokeWidth]="10"
+                    [outerStrokeColor]="color === 'theme' ? 'rgba(74, 107, 192, 1)' : color === 'red' ? 'rgba(231, 87, 87, 1)' : color === 'green' ? 'rgba(133, 187, 101, 1)' : ''"
+                    [outerStrokeGradientStopColor]="color === 'theme' ? 'rgba(74, 107, 192, 0.75)' : color === 'red' ? 'rgba(231, 87, 87, 0.75)' : color === 'green' ? 'rgba(133, 187, 101, 0.75)' : color"
+                    [innerStrokeColor]="color === 'theme' ? 'rgba(74, 107, 192, 0.25)' : color === 'red' ? 'rgba(231, 87, 87, 0.25)' : color === 'green' ? 'rgba(133, 187, 101, 0.25)' : ''"
+                    [animation]="true"
+                    [title]="percent"
+                    [animationDuration]="1000"
+                ></circle-progress>
+            </div>
+        </div>
+        <small class="text-muted">Last 24 Hours</small>
+    </div>
+</div>

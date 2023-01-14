@@ -44,6 +44,8 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { ProfileComponent } from '../pages/profile/profile.component';
 import { SettingsComponent } from '../pages/settings/settings.component';
 import { DashboardComponent } from '../pages/dashboard/dashboard.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { InsightBoxComponent } from './reused/insight-box/insight-box.component';
 
 const Ux_Module =[
   MatCheckboxModule,
@@ -89,6 +91,7 @@ const PageComponents = [
 @NgModule({
   declarations: [
     PageComponents,
+    InsightBoxComponent,
   ],
   imports: [
     SharedRoutingModule,
@@ -99,6 +102,24 @@ const PageComponents = [
     ReactiveFormsModule,
     // Material
     Ux_Module,
+    NgCircleProgressModule.forRoot({
+      "radius": 60,
+      "space": -10,
+      "unitsFontSize": "30",
+      "outerStrokeGradient": true,
+      "outerStrokeWidth": 10,
+      "outerStrokeColor": "",
+      "outerStrokeGradientStopColor": "",
+      "innerStrokeColor": "",
+      "innerStrokeWidth": 10,
+      "title": "0",
+      "titleFontSize": "50",
+      "animationDuration": 1000,
+      "showSubtitle": false,
+      "showBackground": false,
+      "clockwise": false,
+      "responsive": true,
+      "lazy": true})
   ],
   exports: [
     PageComponents,

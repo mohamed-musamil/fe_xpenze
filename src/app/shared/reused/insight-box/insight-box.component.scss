@@ -1,0 +1,112 @@
+// insights-box
+.insights-box > div {
+    background: var(--color-white-100);
+    padding: 1.8rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    box-shadow: var(--shadow-02);
+    transition: all 300ms ease;
+
+    mat-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--color-theme-100);
+        padding: 0.5rem;
+        border-radius: 50%;
+        color: var(--color-white-100);
+        font-size: 1.6rem;
+    }
+    .middle-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left-box {
+            min-width: 150px;
+        }
+    }  
+    h3 {
+        margin: 0.2rem 0 0.6rem;
+    }
+    h1 {
+        margin: 0 0 0.6rem;
+    }
+    .progress-box {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        padding-left: 10px;
+        border-radius: 50%; 
+
+        .number {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+    }
+    svg {
+        width: 7rem;
+        height: 7rem;
+
+        circle {
+            fill: none;
+            stroke: var(--color-theme-100);
+            stroke-width: 14;
+            stroke-linecap: round;
+            transform: translate(5px, 5px);
+            stroke-dasharray: 110;
+            stroke-dashoffset: 92;
+        }
+    }
+}
+.insights-box > div.sales {
+    mat-icon {
+        background: var(--color-theme-100);
+    }
+    svg circle {
+        stroke-dashoffset: -30;
+        stroke-dasharray: 200;
+    }
+}
+.insights-box > div.expenses {
+    mat-icon {
+        background: var(--color-red-100);
+    }
+    svg circle {
+        stroke-dashoffset: 20;
+        stroke-dasharray: 80;
+    }
+}
+.insights-box > div.income {
+    mat-icon {
+        background: var(--color-green-100);
+    }
+    svg circle {
+        stroke-dashoffset: 35;
+        stroke-dasharray: 110;
+    }
+}
+
+.insights-box > div:hover {
+    box-shadow: none;
+}
+
+@media screen and (max-width: 1400px) {
+    .insights-box {
+        grid-template-columns: 1fr;
+        gap: 0;
+    } 
+}
+
+
+@media screen and (max-width: 1200px) {
+    .insights-box {
+        grid-template-columns: 1fr;
+        gap: 0;
+    } 
+}
